@@ -11,3 +11,10 @@ def index(request):
 	lotto_numbers = data[0:6]
 	special_number= data[6]
 	return render(request,'index.html',locals())
+
+def show(request, id):
+	try:
+		target = Post.objects.get(id=id)
+	except:
+		target = None
+	return render(request, "showpost.html", locals())
